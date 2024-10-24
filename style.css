@@ -11,38 +11,38 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 10px; /* إضافة حواف للمساحة */
 }
 
 .container {
     text-align: center;
     width: 100%;
-    padding: 20px;
-    overflow-x: auto; /* يسمح بالتمرير في حالة عدم تناسب الجدول */
+    max-width: 1200px;
 }
 
 h1 {
     margin-bottom: 10px;
     color: #d5006d;
+    font-size: 1.5em; /* حجم الخط أكبر */
 }
 
 h2 {
     margin-bottom: 20px;
     color: #555;
+    font-size: 1.2em; /* حجم الخط أكبر */
 }
 
 .product-table {
     width: 100%;
-    max-width: 1200px;
     border-collapse: collapse;
     margin: 20px auto;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .product-table th, .product-table td {
-    padding: 15px;
+    padding: 10px; /* تقليل الحشوة لتناسب الشاشة الصغيرة */
     text-align: center;
     border: 1px solid #ccc;
-    transition: background-color 0.3s ease;
 }
 
 .product-table th {
@@ -61,7 +61,7 @@ h2 {
 }
 
 .product-table img {
-    width: 100px;
+    width: 80px; /* تقليل حجم الصورة */
     height: auto;
     object-fit: cover;
     transition: transform 0.3s ease;
@@ -71,11 +71,20 @@ h2 {
     transform: scale(1.1);
 }
 
-.total {
-    text-align: right;
-    margin: 20px auto;
-    max-width: 1200px;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #d5006d;
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.2em; /* حجم الخط أقل */
+    }
+    
+    h2 {
+        font-size: 1em; /* حجم الخط أقل */
+    }
+
+    .product-table th, .product-table td {
+        font-size: 0.9em; /* حجم الخط أقل */
+    }
+    
+    .product-table img {
+        width: 60px; /* حجم الصورة أصغر */
+    }
 }
