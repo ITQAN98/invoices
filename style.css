@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 10px; /* إضافة حواف للمساحة */
+    padding: 10px;
 }
 
 .container {
@@ -23,13 +23,13 @@ body {
 h1 {
     margin-bottom: 10px;
     color: #d5006d;
-    font-size: 1.5em; /* حجم الخط أكبر */
+    font-size: 1.5em;
 }
 
 h2 {
     margin-bottom: 20px;
     color: #555;
-    font-size: 1.2em; /* حجم الخط أكبر */
+    font-size: 1.2em;
 }
 
 .product-table {
@@ -40,7 +40,7 @@ h2 {
 }
 
 .product-table th, .product-table td {
-    padding: 10px; /* تقليل الحشوة لتناسب الشاشة الصغيرة */
+    padding: 10px;
     text-align: center;
     border: 1px solid #ccc;
 }
@@ -61,7 +61,7 @@ h2 {
 }
 
 .product-table img {
-    width: 80px; /* تقليل حجم الصورة */
+    width: 80px;
     height: auto;
     object-fit: cover;
     transition: transform 0.3s ease;
@@ -71,20 +71,12 @@ h2 {
     transform: scale(1.1);
 }
 
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.2em; /* حجم الخط أقل */
-    }
-    
-    h2 {
-        font-size: 1em; /* حجم الخط أقل */
-    }
+.total-row {
+    font-weight: bold;
+    color: #d5006d;
+}
 
-    .product-table th, .product-table td {
-        font-size: 0.9em; /* حجم الخط أقل */
-    }
-    
-    .product-table img {
-        width: 60px; /* حجم الصورة أصغر */
-    }
+.total-amount {
+    font-weight: bold;
+    text-align: right;
 }
