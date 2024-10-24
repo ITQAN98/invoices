@@ -15,6 +15,9 @@ body {
 
 .container {
     text-align: center;
+    width: 100%;
+    padding: 20px;
+    overflow-x: auto; /* يسمح بالتمرير في حالة عدم تناسب الجدول */
 }
 
 h1 {
