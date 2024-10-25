@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Display Page</title>
     <link rel="stylesheet" href="./style.css">
+    <style>
+        .sortable:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -14,27 +20,31 @@
             <thead>
                 <tr>
                     <th>Group Name</th>
+                    <th>Company Name</th>
                     <th>Image</th>
                     <th>Product Name</th>
                     <th>Description</th>
                     <th>Manufacturer Number</th>
                     <th>Buyer Number</th>
+                    <th class="sortable" onclick="sortTable()">Quantity</th>
                     <th>Price</th>
                     <th>Amount</th>
                     <th>CBM</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="product-body">
                 <tr>
                     <td rowspan="6">Barcode Printer</td>
+                    <td rowspan="6">GAINSCHA AUTO ID CO., LTD.</td>
                     <td><img src="./img/GA-E200I.jpeg" alt="GA-E200I"></td>
                     <td>GA-E200I</td>
                     <td>80mm Receipt Printer, USB+LAN+BT</td>
                     <td>##</td>
                     <td>##</td>
+                    <td class="quantity">5</td>
                     <td class="price">$36.00</td>
                     <td class="amount">$180.00</td>
-                    <td>0.5</td>
+                    <td>0.0</td>
                 </tr>
                 <tr>
                     <td><img src="./img/GS-2208D.jpeg" alt="GS-2208D"></td>
@@ -42,6 +52,7 @@
                     <td>80mm Barcode Printer, USB+USB HOST+LAN</td>
                     <td>##</td>
                     <td>##</td>
+                    <td class="quantity">5</td>
                     <td class="price">$68.00</td>
                     <td class="amount">$340.00</td>
                     <td>0.0</td>
@@ -52,16 +63,18 @@
                     <td>80mm Portable Label and Receipt Printer, USB+BT</td>
                     <td>##</td>
                     <td>##</td>
+                    <td class="quantity">5</td>
                     <td class="price">$38.00</td>
                     <td class="amount">$190.00</td>
                     <td>0.0</td>
                 </tr>
                 <tr>
-                    <td><img src="./img/printer4.jpeg" alt="Product 4"></td>
+                    <td><img src="./img/printer.jpeg" alt="GA-G200"></td>
                     <td>GA-G200</td>
                     <td>80mm Receipt Printer, USB+LAN+Serial</td>
                     <td>##</td>
                     <td>##</td>
+                    <td class="quantity">5</td>
                     <td class="price">$45.00</td>
                     <td class="amount">$225.00</td>
                     <td>0.0</td>
@@ -72,6 +85,7 @@
                     <td>104mm Barcode Printer, USB only</td>
                     <td>##</td>
                     <td>##</td>
+                    <td class="quantity">1</td>
                     <td class="price">$580.00</td>
                     <td class="amount">$1,160.00</td>
                     <td>0.0</td>
@@ -82,18 +96,31 @@
                     <td>58mm Barcode Printer, USB+BT</td>
                     <td>##</td>
                     <td>##</td>
+                    <td class="quantity">5</td>
                     <td class="price">$30.00</td>
                     <td class="amount">$150.00</td>
                     <td>0.0</td>
                 </tr>
-                <tr class="total-row">
-                    <td colspan="6" style="text-align: right;"></td>
-                    <td colspan="1"></td>
-                    <td class="total-amount">$2,225.00</td>
-                    <td colspan="1"></td>
-                </tr>
             </tbody>
         </table>
     </div>
+
+    <script>
+        function sortTable() {
+            const tbody = document.getElementById('product-body');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            const header = rows.shift();
+
+            const sortedRows = rows.sort((a, b) => {
+                const qtyA = parseInt(a.querySelector('.quantity').innerText) || 0;
+                const qtyB = parseInt(b.querySelector('.quantity').innerText) || 0;
+                return qtyB - qtyA;
+            });
+
+            tbody.innerHTML = '';
+            tbody.appendChild(header);
+            sortedRows.forEach(row => tbody.appendChild(row));
+        }
+    </script>
 </body>
 </html>
